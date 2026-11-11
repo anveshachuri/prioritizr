@@ -1084,7 +1084,7 @@ s6 <- solve(p6)
     ## Cutting planes:
     ##   Gomory: 3
     ## 
-    ## Explored 1 nodes (1169 simplex iterations) in 0.12 seconds (0.15 work units)
+    ## Explored 1 nodes (1169 simplex iterations) in 0.16 seconds (0.15 work units)
     ## Thread count was 1 (of 8 available processors)
     ## 
     ## Solution count 10: 13780 15120 15200 ... 18060
@@ -1251,7 +1251,7 @@ s7 <- solve(p7)
     ## Cutting planes:
     ##   Gomory: 1
     ## 
-    ## Explored 1 nodes (447 simplex iterations) in 0.03 seconds (0.04 work units)
+    ## Explored 1 nodes (447 simplex iterations) in 0.04 seconds (0.04 work units)
     ## Thread count was 1 (of 8 available processors)
     ## 
     ## Solution count 4: 18700 19020 19100 24400 

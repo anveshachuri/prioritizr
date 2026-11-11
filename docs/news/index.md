@@ -1,5 +1,36 @@
 # Changelog
 
+## prioritizr 9.0.1.2
+
+### Notice
+
+- Update package citation information to include Neubert et al. (2026)
+  ([\#420](https://github.com/prioritizr/prioritizr/issues/420)).
+
+### New features
+
+- New
+  [`add_separation_constraints()`](https://prioritizr.net/reference/add_separation_constraints.md)
+  function to add constraints to ensure that selected planning units
+  must be spatially separated from each other
+  ([\#414](https://github.com/prioritizr/prioritizr/issues/414)). Thanks
+  to Eleanor Stewart
+  ([@eleanorstewart17](https://github.com/eleanorstewart17)) for feature
+  suggestion and massive thanks to Anvesha Churi
+  ([@anveshachuri](https://github.com/anveshachuri)) for contributing
+  code and developing the underlying mathematical formulation.
+- New
+  [`add_xor_constraints()`](https://prioritizr.net/reference/add_xor_constraints.md)
+  function to add constraints to ensure that solutions must not contain
+  particular pairs of selected planning units. Massive thanks to Anvesha
+  Churi ([@anveshachuri](https://github.com/anveshachuri)) for
+  contributing code and developing the underlying mathematical
+  formulation.
+
+### Documentation updates
+
+- Update *Publication record* vignette.
+
 ## prioritizr 9.0.1.1
 
 ### Minor improvements and bug fixes
@@ -8,6 +39,13 @@
   [`add_scip_solver()`](https://prioritizr.net/reference/add_scip_solver.md)
   function for the *SCIP* optimization software
   ([\#412](https://github.com/prioritizr/prioritizr/issues/412)).
+- New
+  [`add_separation_constraints()`](https://prioritizr.net/reference/add_separation_constraints.md)
+  function to add constraints so that selected planning units are not
+  neighbors with each other. When used with multiple zones, these
+  constraints can ensure that features are represented in multiple,
+  spatially separate protected areas
+  ([\#414](https://github.com/prioritizr/prioritizr/issues/414)).
 - Fix bug in
   [`spec_rule_targets()`](https://prioritizr.net/reference/spec_rule_targets.md)
   function that yielded incorrect targets when the order of the features
@@ -1093,7 +1131,8 @@ CRAN release: 2025-01-09
 ### Minor improvements and bug fixes
 
 - Fix issue with [`print()`](https://rdrr.io/r/base/print.html) and
-  `summarize()` not displaying correct text for linear constraints
+  [`summarize()`](https://dplyr.tidyverse.org/reference/summarise.html)
+  not displaying correct text for linear constraints
   ([\#330](https://github.com/prioritizr/prioritizr/issues/330)).
 
 ## prioritizr 8.0.4

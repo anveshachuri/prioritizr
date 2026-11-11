@@ -378,9 +378,9 @@ mp2 <-
 
 # solve multi-objective problem and remove duplicate solutions
 ms2 <- solve(mp2, remove_duplicates = TRUE)
-#> Generating solutions ■■■■■                            | 3/20 |  15% | ETA: 8s
-#> Generating solutions ■■■■■■■■■■■■■■■■                 | 10/20 |  50% | ETA: 4s
-#> Generating solutions ■■■■■■■■■■■■■■■■■■■■■■■■■■■      | 17/20 |  85% | ETA: 1s
+#> Generating solutions ■■■■■                            | 3/20 |  15% | ETA: 9s
+#> Generating solutions ■■■■■■■■■■■■■■■■                 | 10/20 |  50% | ETA: 5s
+#> Generating solutions ■■■■■■■■■■■■■■■■■■■■■■■■■        | 16/20 |  80% | ETA: 2s
 #> Generating solutions ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  | 20/20 | 100% | ETA: 0s
 #> ℹ Found 7 out of the requested 20 non-duplicate solutions.
 

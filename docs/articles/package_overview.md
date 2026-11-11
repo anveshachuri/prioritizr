@@ -465,10 +465,10 @@ raster data.
 
 ``` r
 # create problem
-p1 <- problem(sim_pu_raster, sim_features)
+p_rast <- problem(sim_pu_raster, sim_features)
 
 # print problem
-print(p1)
+print(p_rast)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -494,14 +494,14 @@ print(p1)
 
 ``` r
 # print number of planning units
-number_of_planning_units(p1)
+number_of_planning_units(p_rast)
 ```
 
     ## [1] 90
 
 ``` r
 # print number of features
-number_of_features(p1)
+number_of_features(p_rast)
 ```
 
     ## [1] 5
@@ -531,10 +531,10 @@ Examples section for
 # create problem with spatial vector data
 # note that we have to specify which column in the attribute table contains
 # the cost data
-p2 <- problem(sim_pu_polygons, sim_features, cost_column = "cost")
+p_sf <- problem(sim_pu_polygons, sim_features, cost_column = "cost")
 
 # print problem
-print(p2)
+print(p_sf)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -640,10 +640,10 @@ head(puvspr_dat)
 
 ``` r
 # create problem
-p3 <- problem(pu_dat, spec_dat, cost_column = "cost", rij = puvspr_dat)
+p_df <- problem(pu_dat, spec_dat, cost_column = "cost", rij = puvspr_dat)
 
 # print problem
-print(p3)
+print(p_df)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -699,12 +699,12 @@ to initialize the problem. The following objectives are available.
 
 ``` r
 # create a new problem that has the minimum set objective
-p3 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective()
 
 # print problem
-print(p3)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -735,12 +735,12 @@ print(p3)
 ``` r
 # create a new problem that has the maximum coverage objective and a budget
 # of 5000
-p4 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_max_cover_objective(5000)
 
 # print problem
-print(p4)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -779,12 +779,12 @@ print(p4)
 ``` r
 # create a new problem that has the maximum number of targets met objective and
 # a budget of 5000
-p5 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_max_n_targets_met_objective(budget = 5000)
 
 # print problem
-print(p5)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -821,12 +821,12 @@ print(p5)
 ``` r
 # create a new problem that has the minimum shortfall objective and a budget
 # of 5000
-p6 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_shortfall_objective(budget = 5000)
 
 # print problem
-print(p6)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -862,12 +862,12 @@ print(p6)
 ``` r
 # create a new problem that has the minimum largest shortfall objective and a
 # budget of 5000
-p7 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_largest_shortfall_objective(budget = 5000)
 
 # print problem
-print(p7)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -906,12 +906,12 @@ sim_phylogeny <- get_sim_phylogeny()
 
 # create a new problem that has the maximum phylogenetic diversity
 # objective and a budget of 5000
-p8 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_max_phylo_div_objective(budget = 5000, tree = sim_phylogeny)
 
 # print problem
-print(p8)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -949,12 +949,12 @@ sim_phylogeny <- get_sim_phylogeny()
 
 # create a new problem that has the maximum phylogenetic diversity
 # objective and a budget of 5000
-p9 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_max_phylo_end_objective(budget = 5000, tree = sim_phylogeny)
 
 # print problem
-print(p9)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -991,7 +991,7 @@ print(p9)
 ``` r
 # create a new problem that has the maximum weighted sum objective and a budget
 # of 5000
-p10 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_max_wtd_sum_objective(budget = 5000)
 ```
@@ -1001,7 +1001,7 @@ p10 <-
 
 ``` r
 # print problem
-print(p10)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1033,12 +1033,12 @@ print(p10)
 ``` r
 # create a new problem that has the minimum penalties objective and a budget
 # of 5000
-p11 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_penalties_objective(budget = 5000)
 
 # print problem
-print(p11)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1084,13 +1084,13 @@ targets.
 ``` r
 # create a problem with targets which specify that the solution must conserve
 # a sum total of 3 units of suitable habitat for each feature
-p12 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_absolute_targets(3)
 
 # print problem
-print(p12)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1126,13 +1126,13 @@ print(p12)
 ``` r
 # create a problem with the minimum set objective and relative targets of 10%
 # for each feature
-p13 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1)
 
 # print problem
-print(p13)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1161,13 +1161,13 @@ print(p13)
 # for the first feature, 15 % for the second feature, 20 % for the third feature
 # 25 % for the fourth feature and 30 % of the habitat for the fifth feature
 targets <- c(0.1, 0.15, 0.2, 0.25, 0.3)
-p14 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(targets)
 
 # print problem
-print(p14)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1225,13 +1225,13 @@ print(p14)
 ``` r
 # create a problem with the minimum set objective and relative targets of 10%
 # for each feature
-p15 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_auto_targets(method = spec_relative_targets(0.1))
 
 # print problem
-print(p15)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1294,7 +1294,7 @@ print(p15)
 # create a problem with the minimum set objective and relative targets of 10%
 # for the first three features (assigned to the group a) and 20% targets
 # for the last two features (assigned to the group b)
-p16 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_group_targets(
@@ -1306,7 +1306,7 @@ p16 <-
   )
 
 # print problem
-print(p16)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1360,13 +1360,13 @@ print(man_targets)
 
 ``` r
 # create a problem with the minimum set objective and a manual targets
-p17 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_manual_targets(man_targets)
 
 # print problem
-print(p17)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1407,14 +1407,14 @@ configuration. The following constraints are available.
 ``` r
 # create problem with constraints which specify that the first planning unit
 # must be selected in the solution
-p18 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
   add_locked_in_constraints(1)
 
 # print problem
-print(p18)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1447,14 +1447,14 @@ print(p18)
 ``` r
 # create problem with constraints which specify that the second planning unit
 # must not be selected in the solution
-p19 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
   add_locked_out_constraints(2)
 
 # print problem
-print(p19)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1486,14 +1486,14 @@ print(p19)
 ``` r
 # create problem with constraints which specify that all selected planning units
 # in the solution must have at least 1 neighbor
-p20 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
   add_neighbor_constraints(1)
 
 # print problem
-print(p20)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1518,6 +1518,98 @@ print(p20)
     ##  └•solver:      gurobi solver (`gap` = 0.1, `time_limit` = 2147483647, …)
     ## # ℹ Use `summary(...)` to see further details.
 
+- **Separation constraints**: Add constraints to a conservation problem
+  to ensure that selected planning units are separated from each other.
+
+``` r
+# create problem with constraints which specify that all selected planning
+# units in the solution must have no immediate neighbors
+p <-
+  problem(sim_pu_raster, sim_features) %>%
+  add_min_set_objective() %>%
+  add_relative_targets(0.1) %>%
+  add_separation_constraints(data = adjacency_matrix(sim_pu_raster))
+
+# print problem
+print(p)
+```
+
+    ## A conservation problem (<ConservationProblem>)
+    ## ├•data
+    ## │├•features:    "feature_1", "feature_2", "feature_3", … (5 total)
+    ## │└•planning units:
+    ## │ ├•data:       <SpatRaster> (90 total)
+    ## │ ├•costs:      continuous values (between 190.1328 and 215.8638)
+    ## │ ├•extent:     0, 0, 1, 1 (xmin, ymin, xmax, ymax)
+    ## │ └•CRS:        WGS 84 / Pseudo-Mercator (projected)
+    ## ├•formulation
+    ## │├•objective:   minimum set objective
+    ## │├•penalties:   none specified
+    ## │├•features:
+    ## ││├•targets:    relative targets (all equal to 0.1)
+    ## ││└•weights:    none specified
+    ## │├•constraints:
+    ## ││└•1:          separation constraints (…)
+    ## │└•decisions:   binary decision
+    ## └•optimization
+    ##  ├•portfolio:   single portfolio
+    ##  └•solver:      gurobi solver (`gap` = 0.1, `time_limit` = 2147483647, …)
+    ## # ℹ Use `summary(...)` to see further details.
+
+- **Exclusive disjunction (xor) constraints**: Add constraints to a
+  conservation problem to ensure that solutions do not select particular
+  pairs of planning units. For example, let’s consider two planing units
+  (hereafter, planning units A and B) that are affected by these
+  constraints. With these constraints, the solution may select (i)
+  planning unit A and not planning unit B, (ii) planning unit B and not
+  planning unit A, and (iii) neither planning units A and B. In
+  particular, with these constraints, the solution may not select both
+  planning unit A and planning unit B.
+
+``` r
+# define matrix for xor constraints so that a solution cannot select:
+# (i) both of the 1st and 3rd raster pixels, and
+# (ii) both the 10th and 15th raster pixels
+xor_matrix <- Matrix::sparseMatrix(
+  i = c(1, 10), j = c(3, 15), x = 1,
+  dims = rep(terra::ncell(sim_pu_raster), 2),
+  symmetric = TRUE
+)
+
+# create problem with constraints so that the solution cannot select these
+# pairs of planning units
+p <-
+  problem(sim_pu_raster, sim_features) %>%
+  add_min_set_objective() %>%
+  add_relative_targets(0.1) %>%
+  add_xor_constraints(data = xor_matrix)
+
+# print problem
+print(p)
+```
+
+    ## A conservation problem (<ConservationProblem>)
+    ## ├•data
+    ## │├•features:    "feature_1", "feature_2", "feature_3", … (5 total)
+    ## │└•planning units:
+    ## │ ├•data:       <SpatRaster> (90 total)
+    ## │ ├•costs:      continuous values (between 190.1328 and 215.8638)
+    ## │ ├•extent:     0, 0, 1, 1 (xmin, ymin, xmax, ymax)
+    ## │ └•CRS:        WGS 84 / Pseudo-Mercator (projected)
+    ## ├•formulation
+    ## │├•objective:   minimum set objective
+    ## │├•penalties:   none specified
+    ## │├•features:
+    ## ││├•targets:    relative targets (all equal to 0.1)
+    ## ││└•weights:    none specified
+    ## │├•constraints:
+    ## ││└•1:          xor constraints (…)
+    ## │└•decisions:   binary decision
+    ## └•optimization
+    ##  ├•portfolio:   single portfolio
+    ##  └•solver:      gurobi solver (`gap` = 0.1, `time_limit` = 2147483647, …)
+    ## # ℹ Use `summary(...)` to see further details.
+
 - **Contiguity constraints**: Add constraints to a conservation problem
   to ensure that all selected planning units are spatially connected to
   each other and form spatially contiguous unit.
@@ -1525,14 +1617,14 @@ print(p20)
 ``` r
 # create problem with constraints which specify that all selected planning units
 # in the solution must form a single contiguous unit
-p21 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
   add_contiguity_constraints()
 
 # print problem
-print(p21)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1567,14 +1659,14 @@ print(p21)
 ``` r
 # create problem with constraints which specify that the planning units used
 # to conserve each feature must form a contiguous unit
-p22 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
   add_feature_contiguity_constraints()
 
 # print problem
-print(p22)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1609,14 +1701,14 @@ print(p22)
 # create problem with constraints which specify that the sum of
 # values in sim_features[[1]] among selected planning units must not exceed a
 # threshold value of 190.
-p23 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_shortfall_objective(budget = 1800) %>%
   add_relative_targets(0.1) %>%
   add_linear_constraints(190, "<=", sim_features[[1]])
 
 # print problem
-print(p23)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1653,14 +1745,14 @@ print(p23)
 ``` r
 # create problem with constraints which specify that the total
 # cost of the solution must be greater than or equal to 1600
-p24 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_shortfall_objective(budget = 1800) %>%
   add_relative_targets(0.1) %>%
   add_cost_constraints(1600, ">=")
 
 # print problem
-print(p24)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1713,12 +1805,12 @@ plot(
 )
 ```
 
-![](package_overview_files/figure-html/unnamed-chunk-34-1.png)
+![](package_overview_files/figure-html/unnamed-chunk-36-1.png)
 
 ``` r
 # create a problem using raster planning unit data and use the locked raster
 # data to lock in some planning units and lock out some other planning units
-p25 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
@@ -1726,7 +1818,7 @@ p25 <-
   add_locked_out_constraints(sim_locked_out_raster)
 
 # print problem
-print(p25)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1788,14 +1880,14 @@ print(sim_pu_polygons)
 
 ``` r
 # specify locked in data using the field name
-p26 <-
+p <-
   problem(sim_pu_polygons, sim_features, cost_column = "cost") %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
   add_locked_in_constraints("locked_in")
 
 # print problem
-print(p26)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1822,14 +1914,14 @@ print(p26)
 
 ``` r
 # specify locked in data using the values in the field
-p27 <-
+p <-
   problem(sim_pu_polygons, sim_features, cost_column = "cost") %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
   add_locked_in_constraints(which(sim_pu_polygons$locked_in))
 
 # print problem
-print(p27)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1878,14 +1970,14 @@ period of time. The following penalties are available.
 ``` r
 # create problem with penalties that penalize fragmented solutions with a
 # penalty factor of 0.01
-p28 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
   add_boundary_penalties(penalty = 0.01)
 
 # print problem
-print(p28)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1917,14 +2009,14 @@ print(p28)
 
 ``` r
 # create problem with neighbor penalties
-p29 <-
+p <-
   problem(sim_pu_raster, sim_features[[1:4]]) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
   add_neighbor_penalties(penalty = 5)
 
 # print problem
-print(p29)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -1961,7 +2053,7 @@ print(p29)
 # to represent the connectivity data, where the connectivity_matrix function
 # will create a matrix showing the average strength of connectivity between
 # adjacent planning units using the data in the fifth layer of sim_features
-p30 <-
+p <-
   problem(sim_pu_raster, sim_features[[1:4]]) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
@@ -1971,7 +2063,7 @@ p30 <-
   )
 
 # print problem
-print(p30)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2011,14 +2103,14 @@ asym_con_matrix <- matrix(
 )
 
 # create problem with penalties for asymmetric connectivity
-p31 <-
+p <-
   problem(sim_pu_raster, sim_features[[1:4]]) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
   add_asym_connectivity_penalties(penalty = 5, data = asym_con_matrix)
 
 # print problem
-print(p31)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2056,14 +2148,14 @@ pen_raster <- simulate_cost(sim_pu_raster)
 # here we will use a penalty value of 5 to indicate the trade-off (scaling)
 # between the penalty values (in the sim_pu_raster) and the main objective
 # (i.e., the cost of the solution)
-p32 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
   add_linear_penalties(penalty = 5, data = pen_raster)
 
 # print problem
-print(p32)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2099,14 +2191,14 @@ print(p32)
 # of 0.01 to indicate the trade-off (scaling)
 # between the cost values (in the sim_pu_raster) and the main objective
 # (i.e., sum of feature shortfall values)
-p33 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_shortfall_objective(budget = 1800) %>%
   add_cost_penalties(0.01) %>%
   add_relative_targets(0.1)
 
 # print problem
-print(p33)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2151,14 +2243,14 @@ available.
 
 ``` r
 # add binary decisions to a problem
-p34 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
   add_binary_decisions()
 
 # print problem
-print(p34)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2193,14 +2285,14 @@ print(p34)
 
 ``` r
 # add proportion decisions to a problem
-p35 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
   add_proportion_decisions()
 
 # print problem
-print(p35)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2236,14 +2328,14 @@ print(p35)
 ``` r
 # add semi-continuous decisions to a problem, where we can only manage at most
 # 50 % of the area encompassed by a planning unit
-p36 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
   add_semicontinuous_decisions(0.5)
 
 # print problem
-print(p36)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2289,7 +2381,7 @@ The following solvers are available.
 ``` r
 # create a problem and specify that Gurobi should be used to solve the problem
 # and specify an optimality gap of zero to obtain the optimal solution
-p37 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
@@ -2297,7 +2389,7 @@ p37 <-
   add_gurobi_solver(gap = 0)
 
 # print problem
-print(p37)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2331,7 +2423,7 @@ print(p37)
 ``` r
 # create a problem and specify that IBM CPLEX should be used to solve the
 # problem and specify an optimality gap of zero to obtain the optimal solution
-p38 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
@@ -2339,7 +2431,7 @@ p38 <-
   add_cplex_solver(gap = 0)
 
 # print problem
-print(p38)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2380,7 +2472,7 @@ print(p38)
 ``` r
 # create a problem and specify that CBC should be used to solve the
 # problem and specify an optimality gap of zero to obtain the optimal solution
-p39 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
@@ -2388,7 +2480,7 @@ p39 <-
   add_cbc_solver(gap = 0)
 
 # print problem
-print(p39)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2430,7 +2522,7 @@ print(p39)
 ``` r
 # create a problem and specify that HiGHS should be used to solve the
 # problem and specify an optimality gap of zero to obtain the optimal solution
-p40 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
@@ -2438,7 +2530,7 @@ p40 <-
   add_highs_solver(gap = 0)
 
 # print problem
-print(p40)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2472,7 +2564,7 @@ print(p40)
 ``` r
 # create a problem and specify that lpsymphony should be used to solve the
 # problem and specify an optimality gap of zero to obtain the optimal solution
-p41 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
@@ -2480,7 +2572,7 @@ p41 <-
   add_lpsymphony_solver(gap = 0)
 
 # print problem
-print(p41)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2513,7 +2605,7 @@ print(p41)
 ``` r
 # create a problem and specify that Rsymphony should be used to solve the
 # problem and specify an optimality gap of zero to obtain the optimal solution
-p42 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
@@ -2521,7 +2613,7 @@ p42 <-
   add_rsymphony_solver(gap = 0)
 
 # print problem
-print(p42)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2555,7 +2647,7 @@ print(p42)
 ``` r
 # create a problem and specify that SCIP should be used to solve the
 # problem and specify an optimality gap of zero to obtain the optimal solution
-p43 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
@@ -2563,7 +2655,7 @@ p43 <-
   add_scip_solver(gap = 0)
 
 # print problem
-print(p43)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2606,7 +2698,7 @@ portfolio methods are available.
 ``` r
 # create a problem and specify that a portfolio should be created by
 # finding five solutions within 10% of optimality
-p44 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
@@ -2614,7 +2706,7 @@ p44 <-
   add_gap_portfolio(number_solutions = 5, pool_gap = 0.2)
 
 # print problem
-print(p44)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2646,7 +2738,7 @@ print(p44)
 ``` r
 # create a problem and specify that a portfolio should be created using
 # the top five solutions
-p45 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
@@ -2654,7 +2746,7 @@ p45 <-
   add_top_portfolio(number_solutions = 5)
 
 # print problem
-print(p45)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2686,7 +2778,7 @@ print(p45)
 ``` r
 # create a problem and specify that a portfolio should be created using
 # extra solutions found while solving the problem
-p46 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
@@ -2694,7 +2786,7 @@ p46 <-
   add_extra_portfolio()
 
 # print problem
-print(p46)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2725,7 +2817,7 @@ print(p46)
 ``` r
 # create a problem and specify that a portfolio containing 10 solutions
 # should be created using using Bender's cuts
-p47 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
@@ -2733,7 +2825,7 @@ p47 <-
   add_cuts_portfolio(number_solutions = 10)
 
 # print problem
-print(p47)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2766,7 +2858,7 @@ print(p47)
 ``` r
 # create a problem and specify a portfolio should be created that contains
 # 10 solutions and that any duplicate solutions should not be removed
-p48 <-
+p <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
@@ -2774,7 +2866,7 @@ p48 <-
   add_shuffle_portfolio(number_solutions = 10)
 
 # print problem
-print(p48)
+print(p)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2809,7 +2901,7 @@ when searching for a suitable solution.
 
 ``` r
 # formulate the problem
-p49 <-
+p1 <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
@@ -2817,7 +2909,7 @@ p49 <-
   add_binary_decisions()
 
 # print problem
-print(p49)
+print(p1)
 ```
 
     ## A conservation problem (<ConservationProblem>)
@@ -2844,7 +2936,7 @@ print(p49)
 
 ``` r
 # solve the problem (using the default solver)
-s49 <- solve(p49)
+s1 <- solve(p1)
 ```
 
     ## 
@@ -2908,7 +3000,7 @@ s49 <- solve(p49)
     ## Cutting planes:
     ##   Gomory: 3
     ## 
-    ## Explored 304 nodes (5020 simplex iterations) in 0.19 seconds (0.24 work units)
+    ## Explored 304 nodes (5020 simplex iterations) in 0.26 seconds (0.24 work units)
     ## Thread count was 1 (of 8 available processors)
     ## 
     ## Solution count 8: 3548.26 3606.45 3659.38 ... 22987.2
@@ -2919,12 +3011,12 @@ s49 <- solve(p49)
 ``` r
 # plot solution
 plot(
-  s49, col = c("grey90", "darkgreen"), main = "Solution",
+  s1, col = c("grey90", "darkgreen"), main = "Solution",
   xlim = c(-0.1, 1.1), ylim = c(-0.1, 1.1), axes = FALSE
 )
 ```
 
-![](package_overview_files/figure-html/unnamed-chunk-58-1.png)
+![](package_overview_files/figure-html/unnamed-chunk-60-1.png)
 
 We can plot this solution because the planning unit input data are
 spatially referenced in a raster format. The output format will always
@@ -2940,7 +3032,7 @@ quality of the solution and the optimization process.
 ``` r
 # extract the objective value for solution
 # (numerical value that is being minimized or maximized during optimization)
-print(attr(s49, "objective"))
+print(attr(s1, "objective"))
 ```
 
     ## solution_1 
@@ -2948,16 +3040,16 @@ print(attr(s49, "objective"))
 
 ``` r
 # extract time spent solving solution
-print(attr(s49, "runtime"))
+print(attr(s1, "runtime"))
 ```
 
     ## solution_1 
-    ##      0.192
+    ##       0.27
 
 ``` r
 # extract state message from the solver that describes why this specific
 # solution was returned
-print(attr(s49, "status"))
+print(attr(s1, "status"))
 ```
 
     ## solution_1 
@@ -2966,7 +3058,7 @@ print(attr(s49, "status"))
 ``` r
 # extract the objective bound
 # (best estimate of lower or upper limit for optimal objective value)
-print(attr(s49, "objbound"))
+print(attr(s1, "objbound"))
 ```
 
     ## solution_1 
@@ -2994,7 +3086,7 @@ The following functions are available to summarize a solution:
 
 ``` r
 # calculate statistic
-eval_n_summary(p49, s49)
+eval_n_summary(p1, s1)
 ```
 
     ## # A tibble: 1 × 2
@@ -3006,7 +3098,7 @@ eval_n_summary(p49, s49)
 
 ``` r
 # calculate statistic
-eval_cost_summary(p49, s49)
+eval_cost_summary(p1, s1)
 ```
 
     ## # A tibble: 1 × 2
@@ -3020,7 +3112,7 @@ eval_cost_summary(p49, s49)
 
 ``` r
 # calculate statistics
-eval_feature_representation_summary(p49, s49)
+eval_feature_representation_summary(p1, s1)
 ```
 
     ## # A tibble: 5 × 5
@@ -3038,7 +3130,7 @@ eval_feature_representation_summary(p49, s49)
 
 ``` r
 # calculate statistics
-eval_target_coverage_summary(p49, s49)
+eval_target_coverage_summary(p1, s1)
 ```
 
     ## # A tibble: 5 × 10
@@ -3057,7 +3149,7 @@ eval_target_coverage_summary(p49, s49)
 
 ``` r
 # calculate statistic
-eval_boundary_summary(p49, s49)
+eval_boundary_summary(p1, s1)
 ```
 
     ## # A tibble: 1 × 2
@@ -3075,7 +3167,7 @@ eval_boundary_summary(p49, s49)
 cm <- adjacency_matrix(sim_pu_raster)
 
 # calculate statistic
-eval_connectivity_summary(p49, s49, data = cm)
+eval_connectivity_summary(p1, s1, data = cm)
 ```
 
     ## # A tibble: 1 × 2
@@ -3092,7 +3184,7 @@ eval_connectivity_summary(p49, s49, data = cm)
 acm <- matrix(runif(ncell(sim_pu_raster) ^ 2), ncol = ncell(sim_pu_raster))
 
 # calculate statistic
-eval_asym_connectivity_summary(p49, s49, data = acm)
+eval_asym_connectivity_summary(p1, s1, data = acm)
 ```
 
     ## # A tibble: 1 × 2
@@ -3120,23 +3212,23 @@ importance methods.
 
 ``` r
 # formulate the problem
-p50 <-
+p2 <-
   problem(sim_pu_raster, sim_features) %>%
   add_min_set_objective() %>%
   add_relative_targets(0.1) %>%
   add_binary_decisions()
 
 # solve the problem
-s50 <- solve(p50)
+s2 <- solve(p2)
 
 # plot solution
 plot(
-  s50, col = c("grey90", "darkgreen"), main = "Solution",
+  s2, col = c("grey90", "darkgreen"), main = "Solution",
   xlim = c(-0.1, 1.1), ylim = c(-0.1, 1.1), axes = FALSE
 )
 ```
 
-![](package_overview_files/figure-html/unnamed-chunk-67-1.png)
+![](package_overview_files/figure-html/unnamed-chunk-69-1.png)
 
 The following methods are available for computing importance scores.
 
@@ -3155,19 +3247,19 @@ The following methods are available for computing importance scores.
 
 ``` r
 # calculate replacement cost scores and make the solver quiet
-rc50 <-
-  p50 %>%
+rc2 <-
+  p2 %>%
   add_default_solver(gap = 0, verbose = FALSE) %>%
-  eval_replacement_importance(s50)
+  eval_replacement_importance(s2)
 
 # plot replacement cost scores
 plot(
-  rc50, main = "Replacement cost scores",
+  rc2, main = "Replacement cost scores",
   xlim = c(-0.1, 1.1), ylim = c(-0.1, 1.1), axes = FALSE
 )
 ```
 
-![](package_overview_files/figure-html/unnamed-chunk-68-1.png)
+![](package_overview_files/figure-html/unnamed-chunk-70-1.png)
 
 - **Incremental ranks**: Evaluate importance scores by calculating ranks
   via an incremental optimization process (Jung *et al.* 2021). Briefly,
@@ -3183,19 +3275,19 @@ plot(
 
 ``` r
 # calculate rank scores and make the solver quiet
-rs50 <-
-  p50 %>%
+rs2 <-
+  p2 %>%
   add_default_solver(gap = 0, verbose = FALSE) %>%
-  eval_rank_importance(s50, n = 10)
+  eval_rank_importance(s2, n = 10)
 
 # plot replacement cost scores
 plot(
-  rs50, main = "Rank scores",
+  rs2, main = "Rank scores",
   xlim = c(-0.1, 1.1), ylim = c(-0.1, 1.1), axes = FALSE
 )
 ```
 
-![](package_overview_files/figure-html/unnamed-chunk-69-1.png)
+![](package_overview_files/figure-html/unnamed-chunk-71-1.png)
 
 - **Ferrier method**: Evaluate importance by computing irreplaceability
   scores following Ferrier *et al.* (2000). The advantages of this
@@ -3208,16 +3300,16 @@ plot(
 
 ``` r
 # calculate Ferrier scores and extract total score
-fs50 <- eval_ferrier_importance(p50, s50)[["total"]]
+fs2 <- eval_ferrier_importance(p2, s2)[["total"]]
 
 # plot Ferrier scores
 plot(
-  fs50, main = "Ferrier scores",
+  fs2, main = "Ferrier scores",
   xlim = c(-0.1, 1.1), ylim = c(-0.1, 1.1), axes = FALSE
 )
 ```
 
-![](package_overview_files/figure-html/unnamed-chunk-70-1.png)
+![](package_overview_files/figure-html/unnamed-chunk-72-1.png)
 
 - **Rarity weighted richness**: Evaluate importance by computing rarity
   weighted richness scores (Williams *et al.* 1996). The only advantage
@@ -3231,16 +3323,16 @@ plot(
 
 ``` r
 # calculate rarity weighted richness scores
-rwr50 <- eval_rare_richness_importance(p50, s50)
+rwr2 <- eval_rare_richness_importance(p2, s2)
 
 # plot rarity weighted richness scores
 plot(
-  rwr50, main = "Rarity weighted richness scores",
+  rwr2, main = "Rarity weighted richness scores",
   xlim = c(-0.1, 1.1), ylim = c(-0.1, 1.1), axes = FALSE
 )
 ```
 
-![](package_overview_files/figure-html/unnamed-chunk-71-1.png)
+![](package_overview_files/figure-html/unnamed-chunk-73-1.png)
 
 In general, we recommend using replacement cost scores for small and
 moderate sized problems (e.g., less than 30,000 planning units) when it
@@ -3462,7 +3554,7 @@ plot(
 )
 ```
 
-![](package_overview_files/figure-html/unnamed-chunk-73-1.png)
+![](package_overview_files/figure-html/unnamed-chunk-75-1.png)
 
 - **Reference point**: This approaches involves combining the objectives
   together using (i) reference point (`ref_points`) parameters that
@@ -3501,7 +3593,7 @@ plot(
 )
 ```
 
-![](package_overview_files/figure-html/unnamed-chunk-74-1.png)
+![](package_overview_files/figure-html/unnamed-chunk-76-1.png)
 
 - **Hierarchical**: This approach involves solving an optimization
   problem for each objective in a hierarchical (lexicographic) manner.
@@ -3538,7 +3630,7 @@ plot(
 )
 ```
 
-![](package_overview_files/figure-html/unnamed-chunk-75-1.png)
+![](package_overview_files/figure-html/unnamed-chunk-77-1.png)
 
 The multi-objective optimization approaches can be used to generate
 multiple solutions. Although portfolio functions can also be used to
@@ -3610,7 +3702,7 @@ plot(
 )
 ```
 
-![](package_overview_files/figure-html/unnamed-chunk-78-1.png)
+![](package_overview_files/figure-html/unnamed-chunk-80-1.png)
 
 ``` r
 # extract objective values for the solutions
@@ -3642,7 +3734,7 @@ plot(
 )
 ```
 
-![](package_overview_files/figure-html/unnamed-chunk-79-1.png)
+![](package_overview_files/figure-html/unnamed-chunk-81-1.png)
 
 ## *Marxan* problems
 

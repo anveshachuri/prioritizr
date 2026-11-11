@@ -197,7 +197,7 @@ eval_boundary_summary <- function(x, solution,
   # convert zones to matrix
   zones <- as.matrix(zones)
   assert(
-    isSymmetric(zones),
+    is_symmetric_matrix(zones),
     ncol(zones) == number_of_zones(x),
     min(zones) >= -1,
     max(zones) <= 1

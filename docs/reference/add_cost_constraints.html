@@ -15,7 +15,7 @@ that the cost of selected planning units meets certain criteria."><meta property
 
     <a class="navbar-brand me-2" href="../index.html">prioritizr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">9.0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">9.0.1.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -140,7 +140,9 @@ $$</p>
 <code><a href="add_mandatory_allocation_constraints.html">add_mandatory_allocation_constraints()</a></code>,
 <code><a href="add_manual_bounded_constraints.html">add_manual_bounded_constraints()</a></code>,
 <code><a href="add_manual_locked_constraints.html">add_manual_locked_constraints()</a></code>,
-<code><a href="add_neighbor_constraints.html">add_neighbor_constraints()</a></code></p></div>
+<code><a href="add_neighbor_constraints.html">add_neighbor_constraints()</a></code>,
+<code><a href="add_separation_constraints.html">add_separation_constraints()</a></code>,
+<code><a href="add_xor_constraints.html">add_xor_constraints()</a></code></p></div>
     </div>
 
     <div class="section level2">
@@ -227,15 +229,15 @@ $$</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># generate solutions and remove duplicates</span></span></span>
 <span class="r-in"><span><span class="va">ms</span> <span class="op">&lt;-</span> <span class="fu"><a href="solve.html">solve</a></span><span class="op">(</span><span class="va">mp</span>, remove_duplicates <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■                            </span> | 1/10 |  10% | ETA:29s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■                         </span> | 2/10 |  20% | ETA:25s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■■■■                      </span> | 3/10 |  30% | ETA:21s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■■■■■■■                   </span> | 4/10 |  40% | ETA:18s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■■■■■■■■■■                </span> | 5/10 |  50% | ETA:15s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■             </span> | 6/10 |  60% | ETA:12s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■          </span> | 7/10 |  70% | ETA: 9s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■       </span> | 8/10 |  80% | ETA: 6s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■    </span> | 9/10 |  90% | ETA: 3s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■                            </span> | 1/10 |  10% | ETA:32s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■                         </span> | 2/10 |  20% | ETA:29s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■■■■                      </span> | 3/10 |  30% | ETA:26s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■■■■■■■                   </span> | 4/10 |  40% | ETA:22s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■■■■■■■■■■                </span> | 5/10 |  50% | ETA:18s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■             </span> | 6/10 |  60% | ETA:15s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■          </span> | 7/10 |  70% | ETA:11s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■       </span> | 8/10 |  80% | ETA: 7s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■    </span> | 9/10 |  90% | ETA: 4s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Generating solutions <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ </span> | 10/10 | 100% | ETA: 0s</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># plot the solutions</span></span></span>

@@ -50,7 +50,9 @@ Other functions for adding constraints:
 [`add_locked_out_constraints()`](https://prioritizr.net/reference/add_locked_out_constraints.md),
 [`add_manual_bounded_constraints()`](https://prioritizr.net/reference/add_manual_bounded_constraints.md),
 [`add_manual_locked_constraints()`](https://prioritizr.net/reference/add_manual_locked_constraints.md),
-[`add_neighbor_constraints()`](https://prioritizr.net/reference/add_neighbor_constraints.md)
+[`add_neighbor_constraints()`](https://prioritizr.net/reference/add_neighbor_constraints.md),
+[`add_separation_constraints()`](https://prioritizr.net/reference/add_separation_constraints.md),
+[`add_xor_constraints()`](https://prioritizr.net/reference/add_xor_constraints.md)
 
 ## Examples
 

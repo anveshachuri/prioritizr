@@ -447,7 +447,7 @@ test_that("invalid input (multiple zones)", {
   # create neighbor data
   k <- seq_len(3)
   z <- diag(3)
-  a <- array(1, dim = c(rep(length(sim_zones_pu_polygons), 2), 3, 3))
+  a <- array(1, dim = c(rep(nrow(sim_zones_pu_polygons), 2), 3, 3))
   # create problem
   p <-
     problem(

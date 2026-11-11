@@ -213,6 +213,10 @@ rcpp_apply_neighbor_constraints <- function(x, connected_data, clamp, k, max_n) 
     .Call(`_prioritizr_rcpp_apply_neighbor_constraints`, x, connected_data, clamp, k, max_n)
 }
 
+rcpp_apply_xor_constraints <- function(x, cliques) {
+    .Call(`_prioritizr_rcpp_apply_xor_constraints`, x, cliques)
+}
+
 rcpp_asym_connectivity <- function(data, solution) {
     .Call(`_prioritizr_rcpp_asym_connectivity`, data, solution)
 }

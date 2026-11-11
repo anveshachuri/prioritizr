@@ -95,11 +95,15 @@ The latest development version can be installed to gain access to new functional
 
 ## Citation
 
-Please cite the _prioritizr R_ package when using it in publications. To cite the package, please use:
+Please cite the _prioritizr R_ package when using it in publications. To cite the package, please cite the following article.
 
 > Hanson JO, Schuster R, Strimas‐Mackey M, Morrell N, Edwards BPM, Arcese P, Bennett JR, and Possingham HP (2025) Systematic conservation prioritization with the prioritizr R package. _Conservation Biology_, **39**: e14376.
 
-Additionally, we keep a [record of publications](https://prioritizr.net/articles/publication_record.html) that use the _prioritizr R_ package. If you use this package in any reports or publications, please [file an issue on GitHub](https://github.com/prioritizr/prioritizr/issues/new) so we can add it to the record.
+Additionally, if your work uses the multi-objective optimization functionality, please cite the following article as well.
+
+> Neubert S, Richardson AJ, Metcalfe K, McGowan J, Possingham HP, Dabalà A, Buenafe KCV, Chapman M, Jung M, Visconti P, Everett JD, Dunn DC, Mohammadi A, Zhao J, and Hanson JO (2026) Advancing multi‐objective optimization in spatial planning. _Journal of Applied Ecology_, **63**: e70617.
+
+Furthermore, we keep a [record of publications](https://prioritizr.net/articles/publication_record.html) that use the _prioritizr R_ package. If you use this package in any reports or publications, please [file an issue on GitHub](https://github.com/prioritizr/prioritizr/issues/new) so we can add it to the record.
 
 ## Usage
 

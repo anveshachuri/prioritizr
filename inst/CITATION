@@ -1,6 +1,5 @@
-citHeader("To cite the prioritizr package in publications, please use:")
-
 bibentry(
+  header = "To cite the prioritizr package in publications, please cite the following article.",
   bibtype = "Article",
   title = "Systematic conservation prioritization with the prioritizr R package",
   author = c(
@@ -18,6 +17,34 @@ bibentry(
   volume = "39",
   pages = "e14376",
   doi = "10.1111/cobi.14376"
+)
+
+bibentry(
+  header = "Additionally, if your work uses the multi-objective optimization functionality, please cite the following article as well.",
+  bibtype = "Article",
+  title = "Advancing multi-objective optimization in spatial planning",
+  author = c(
+    person(c("Sandra"), "Neubert"),
+    person(c("Anthony", "J"), "Richardson"),
+    person(c("Kristian"), "Metcalfe"),
+    person(c("Jennifer"), "McGowan"),
+    person(c("Hugh", "P"), "Possingham"),
+    person(c("Alvise"), "Dabalà"),
+    person(c("Kristine", "Camille", "V"), "Buenafe"),
+    person(c("Melissa"), "Chapman"),
+    person(c("Martin"), "Jung"),
+    person(c("Piero"), "Visconti"),
+    person(c("Jason", "D"), "Everett"),
+    person(c("Daniel", "C"), "Dunn"),
+    person(c("Aboozar"), "Mohammadi"),
+    person(c("Jianqiao"), "Zhao"),
+    person(c("Jeffrey", "O"), "Hanson")
+  ),
+  year = "2026",
+  journal = "Journal of Applied Ecology",
+  volume = "63",
+  pages = "e70617",
+  doi = "10.1111/1365-2664.70617"
 )
 
 citFooter("For package version, use \"packageVersion('prioritizr')\"\n\n")

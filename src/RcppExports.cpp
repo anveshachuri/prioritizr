@@ -685,6 +685,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_apply_xor_constraints
+bool rcpp_apply_xor_constraints(SEXP x, const Rcpp::List cliques);
+RcppExport SEXP _prioritizr_rcpp_apply_xor_constraints(SEXP xSEXP, SEXP cliquesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type x(xSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::List >::type cliques(cliquesSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_apply_xor_constraints(x, cliques));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpp_asym_connectivity
 double rcpp_asym_connectivity(const Rcpp::List data, const Rcpp::NumericMatrix solution);
 RcppExport SEXP _prioritizr_rcpp_asym_connectivity(SEXP dataSEXP, SEXP solutionSEXP) {

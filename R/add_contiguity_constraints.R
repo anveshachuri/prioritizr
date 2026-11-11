@@ -259,7 +259,7 @@ methods::setMethod("add_contiguity_constraints",
         all_binary(data),
         ncol(data) == nrow(data),
         number_of_total_units(x) == ncol(data),
-        Matrix::isSymmetric(data)
+        is_symmetric_matrix(data)
       )
     } else {
       # check that planning unit data is spatially referenced
@@ -280,8 +280,7 @@ methods::setMethod("add_contiguity_constraints",
     # convert zones to matrix
     zones <- as.matrix(zones)
     assert(
-      is.matrix(zones),
-      isSymmetric(zones),
+      is_symmetric_matrix(zones),
       ncol(zones) == number_of_zones(x),
       is_numeric_values(zones),
       all_finite(zones),

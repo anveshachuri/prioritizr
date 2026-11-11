@@ -6,6 +6,17 @@ test_that("is_matrix_ish", {
   expect_error(assert(is_matrix_ish(new_waiver())), "matrix")
 })
 
+test_that("is_symmetric_matrix", {
+  # run tests
+  expect_true(is_symmetric_matrix(diag(3)))
+  expect_true(is_symmetric_matrix(as_Matrix(diag(3), "dgCMatrix")))
+  expect_true(is_symmetric_matrix(as_Matrix(diag(3), "dsCMatrix")))
+  expect_false(is_symmetric_matrix(new_waiver()))
+  expect_false(is_symmetric_matrix(matrix(1:4, ncol = 2)))
+  expect_false(is_symmetric_matrix(matrix(1:6, ncol = 2)))
+  expect_error(assert(is_symmetric_matrix(new_waiver())), "symmetric")
+})
+
 test_that("is_conservation_problem", {
   # load data
   sim_pu_raster <- get_sim_pu_raster()

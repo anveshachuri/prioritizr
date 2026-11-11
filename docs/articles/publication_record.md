@@ -30,6 +30,9 @@ we can add your work to this list.
   Everett JD, Esturas KJT, and Richardson AJ (2026) Safeguarding
   climate-resilient mangroves requires only a moderate increase in the
   global protected area. *Nature Communications*, **17**: 2063.
+- Fleury AG, O’Hara CC, Everett JD, Halpern BS, Klein CJ, Richardson AJ,
+  and Dunn DC (2026) Prioritizing reducing impacts on species to
+  minimize residual reserves. *Science Advances*, **12**: eaeh8129.
 - Flower J, Burns ES, Dunn DC, Estep A, Everett JD, Hanson JO, Lester
   SE, and Richardson AJ (2026) oceandatr: An R package to acquire and
   process geospatial ocean data. *Ecology and Evolution*, **16**:
@@ -87,6 +90,11 @@ we can add your work to this list.
   MJ, Beger M, and Smith RJ (2026) Ridge-to-reef conservation avoids
   future deforestation and sediment exposure of coral reefs. *Biological
   Conservation*, **322**: 112058.
+- Neubert S, Richardson AJ, Metcalfe K, McGowan J, Possingham HP, Dabalà
+  A, Buenafe KCV, Chapman M, Jung M, Visconti P, Everett JD, Dunn DC,
+  Mohammadi A, Zhao J, and Hanson JO (2026) Advancing multi‐objective
+  optimization in spatial planning. *Journal of Applied Ecology*,
+  **63**: e70617.
 - Ouissoule I, Elkalay K, Derhy G, Aboussalam S, El Kabdani Y, and
   Khalil K (2026) Prioritization of marine protected areas to support
   marine spatial planning along the Moroccan Atlantic Ocean: a
@@ -101,6 +109,9 @@ we can add your work to this list.
   M, and Bas M (2026) Penguins on the move: Mapping priority penguin
   habitat areas under climate change. *Diversity and Distributions*,
   **32**: e70233.
+- Southee FM, Harris LI, Farrell CE, Jones TB, and O’Connor CM (2026)
+  Ecotones in the far north in Ontario are priority areas for
+  biodiversity and carbon storage. *FACETS*, **11**: 1–20.
 - Teschke K, Konijnenberg R, and Bellotto Trigo FC (2026) Conservation
   planning in the Weddell Sea (Antarctica): A comparative analysis of
   decision‐support tools. *Conservation Science and Practice*, **8**:

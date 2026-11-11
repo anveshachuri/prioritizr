@@ -297,9 +297,9 @@ methods::setMethod("add_asym_connectivity_penalties",
       number_of_total_units(x) == ncol(data),
       number_of_zones(x) == ncol(zones)
     )
-    # check for symmetry
+    # check for asymmetry
     verify(
-      !Matrix::isSymmetric(data),
+      !is_symmetric_matrix(data),
       msg =  paste0(
         "{.arg data} does not contain asymmetric connectivity values, ",
         "use {.fn add_connectivity_penalties} instead."

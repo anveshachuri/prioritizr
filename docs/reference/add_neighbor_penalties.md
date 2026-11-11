@@ -137,8 +137,11 @@ The following formats can be used to specify `data`.
   data is present for planning units 2 and 3, then the same amount of
   connectivity is expected for planning units 3 and 2, unless
   connectivity data is also provided for planning units 3 and 2). If `x`
-  has multiple zones, then the
-  "zone1"`and`"zone2"`columns can optionally be provided to manually specify that the neighborhood data pertain to specific zones. The`"zone1"`and`"zone2"`columns should contain the`character`names of the zones. Note that if the columns`"zone1"`and`"zone2"`are present, then`zones`must be`NULL\`.
+  has multiple zones, then the `"zone1"` and `"zone2"` columns can
+  optionally be provided to manually specify that the neighborhood data
+  pertain to specific zones. The `"zone1"` and `"zone2"` columns should
+  contain the `character` names of the zones. Note that if the columns
+  `"zone1"` and `"zone2"` are present, then `zones` must be `NULL`.
 
 - `data` as an `array` object:
 

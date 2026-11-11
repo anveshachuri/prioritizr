@@ -156,15 +156,15 @@ mp <-
 
 # generate solutions and remove duplicates
 ms <- solve(mp, remove_duplicates = TRUE)
-#> Generating solutions ■■■■                             | 1/10 |  10% | ETA:27s
-#> Generating solutions ■■■■■■■                          | 2/10 |  20% | ETA:24s
-#> Generating solutions ■■■■■■■■■■                       | 3/10 |  30% | ETA:21s
-#> Generating solutions ■■■■■■■■■■■■■                    | 4/10 |  40% | ETA:18s
-#> Generating solutions ■■■■■■■■■■■■■■■■                 | 5/10 |  50% | ETA:15s
-#> Generating solutions ■■■■■■■■■■■■■■■■■■■              | 6/10 |  60% | ETA:12s
-#> Generating solutions ■■■■■■■■■■■■■■■■■■■■■■           | 7/10 |  70% | ETA: 9s
-#> Generating solutions ■■■■■■■■■■■■■■■■■■■■■■■■■        | 8/10 |  80% | ETA: 6s
-#> Generating solutions ■■■■■■■■■■■■■■■■■■■■■■■■■■■■     | 9/10 |  90% | ETA: 3s
+#> Generating solutions ■■■■                             | 1/10 |  10% | ETA:33s
+#> Generating solutions ■■■■■■■                          | 2/10 |  20% | ETA:30s
+#> Generating solutions ■■■■■■■■■■                       | 3/10 |  30% | ETA:26s
+#> Generating solutions ■■■■■■■■■■■■■                    | 4/10 |  40% | ETA:22s
+#> Generating solutions ■■■■■■■■■■■■■■■■                 | 5/10 |  50% | ETA:18s
+#> Generating solutions ■■■■■■■■■■■■■■■■■■■              | 6/10 |  60% | ETA:15s
+#> Generating solutions ■■■■■■■■■■■■■■■■■■■■■■           | 7/10 |  70% | ETA:11s
+#> Generating solutions ■■■■■■■■■■■■■■■■■■■■■■■■■        | 8/10 |  80% | ETA: 7s
+#> Generating solutions ■■■■■■■■■■■■■■■■■■■■■■■■■■■■     | 9/10 |  90% | ETA: 4s
 #> Generating solutions ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  | 10/10 | 100% | ETA: 0s
 
 # plot the solutions

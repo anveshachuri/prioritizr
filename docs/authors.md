@@ -51,3 +51,20 @@ prioritization with the prioritizr R package.” *Conservation Biology*,
       pages = {e14376},
       doi = {10.1111/cobi.14376},
     }
+
+Neubert S, Richardson AJ, Metcalfe K, McGowan J, Possingham HP, Dabalà
+A, Buenafe KCV, Chapman M, Jung M, Visconti P, Everett JD, Dunn DC,
+Mohammadi A, Zhao J, Hanson JO (2026). “Advancing multi-objective
+optimization in spatial planning.” *Journal of Applied Ecology*, **63**,
+e70617.
+[doi:10.1111/1365-2664.70617](https://doi.org/10.1111/1365-2664.70617).
+
+    @Article{,
+      title = {Advancing multi-objective optimization in spatial planning},
+      author = {Sandra Neubert and Anthony J Richardson and Kristian Metcalfe and Jennifer McGowan and Hugh P Possingham and Alvise Dabalà and Kristine Camille V Buenafe and Melissa Chapman and Martin Jung and Piero Visconti and Jason D Everett and Daniel C Dunn and Aboozar Mohammadi and Jianqiao Zhao and Jeffrey O Hanson},
+      year = {2026},
+      journal = {Journal of Applied Ecology},
+      volume = {63},
+      pages = {e70617},
+      doi = {10.1111/1365-2664.70617},
+    }

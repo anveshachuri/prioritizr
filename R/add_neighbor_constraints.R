@@ -86,7 +86,7 @@ NULL
 #' the same amount of connectivity is expected for planning units 3 and 2,
 #' unless connectivity data is also provided for planning units 3 and 2).
 #' If `x` has multiple zones, then the
-#' "zone1"` and `"zone2"` columns can optionally be provided to manually
+#' `"zone1"` and `"zone2"` columns can optionally be provided to manually
 #' specify that the neighborhood data pertain to specific zones. The
 #' `"zone1"` and `"zone2"` columns should contain the `character`
 #' names of the zones. Note that if the columns `"zone1"` and `"zone2"`
@@ -362,7 +362,7 @@ internal_add_neighbor_constraints <- function(x, k, clamp, zones, data) {
       is.numeric(zones),
       all_binary(zones),
       all_finite(zones),
-      isSymmetric(zones),
+      is_symmetric_matrix(zones),
       ncol(zones) == number_of_zones(x),
       call = fn_caller_env()
     )

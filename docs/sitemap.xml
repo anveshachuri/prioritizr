@@ -1,5 +1,6 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://prioritizr.net/404.html</loc></url>
+<url><loc>https://prioritizr.net/CITATION.html</loc></url>
 <url><loc>https://prioritizr.net/CONTRIBUTING.html</loc></url>
 <url><loc>https://prioritizr.net/articles/calibrating_trade-offs_tutorial.html</loc></url>
 <url><loc>https://prioritizr.net/articles/connectivity_tutorial.html</loc></url>
@@ -76,10 +77,12 @@
 <url><loc>https://prioritizr.net/reference/add_rsymphony_solver.html</loc></url>
 <url><loc>https://prioritizr.net/reference/add_scip_solver.html</loc></url>
 <url><loc>https://prioritizr.net/reference/add_semicontinuous_decisions.html</loc></url>
+<url><loc>https://prioritizr.net/reference/add_separation_constraints.html</loc></url>
 <url><loc>https://prioritizr.net/reference/add_shuffle_portfolio.html</loc></url>
 <url><loc>https://prioritizr.net/reference/add_single_portfolio.html</loc></url>
 <url><loc>https://prioritizr.net/reference/add_top_portfolio.html</loc></url>
 <url><loc>https://prioritizr.net/reference/add_wtd_sum_approach.html</loc></url>
+<url><loc>https://prioritizr.net/reference/add_xor_constraints.html</loc></url>
 <url><loc>https://prioritizr.net/reference/adjacency_matrix.html</loc></url>
 <url><loc>https://prioritizr.net/reference/approach_rel_tol_matrix.html</loc></url>
 <url><loc>https://prioritizr.net/reference/approach_weights_matrix.html</loc></url>

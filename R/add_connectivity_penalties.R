@@ -500,7 +500,7 @@ methods::setMethod("add_connectivity_penalties",
     )
     # check for symmetry
     assert(
-      Matrix::isSymmetric(data),
+      is_symmetric_matrix(data),
       msg = paste0(
         "{.arg data} does not contain symmetric connectivity values, ",
         "use {.fn add_asym_connectivity_penalties} instead."

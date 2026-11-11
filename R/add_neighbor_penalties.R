@@ -224,14 +224,8 @@ methods::setMethod("add_neighbor_penalties",
       assert(
         ncol(data) == nrow(data),
         number_of_total_units(x) == ncol(data),
-        all_binary(data)
-      )
-      # check for symmetry
-      assert(
-        Matrix::isSymmetric(data),
-        msg = paste0(
-          "{.arg data} must have symmetric values."
-        )
+        all_binary(data),
+        is_symmetric_matrix(data)
       )
     } else {
       # check that planning unit data is spatially referenced
@@ -293,7 +287,7 @@ internal_add_neighbor_penalties <- function(x, penalty, zones, data) {
     assert(
       is_numeric_values(zones),
       all_finite(zones),
-      isSymmetric(zones),
+      is_symmetric_matrix(zones),
       nrow(zones) == ncol(zones),
       ncol(zones) == number_of_zones(x),
       min(zones) >= -1,

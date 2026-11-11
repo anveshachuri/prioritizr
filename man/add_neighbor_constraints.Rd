@@ -105,7 +105,11 @@ specified (e.g., if data is present for planning units 2 and 3, then
 the same amount of connectivity is expected for planning units 3 and 2,
 unless connectivity data is also provided for planning units 3 and 2).
 If \code{x} has multiple zones, then the
-"zone1"\code{and}"zone2"\verb{columns can optionally be provided to manually specify that the neighborhood data pertain to specific zones. The}"zone1"\code{and}"zone2"\verb{columns should contain the}character\verb{names of the zones. Note that if the columns}"zone1"\code{and}"zone2"\verb{are present, then}zones\verb{must be}NULL`.
+\code{"zone1"} and \code{"zone2"} columns can optionally be provided to manually
+specify that the neighborhood data pertain to specific zones. The
+\code{"zone1"} and \code{"zone2"} columns should contain the \code{character}
+names of the zones. Note that if the columns \code{"zone1"} and \code{"zone2"}
+are present, then \code{zones} must be \code{NULL}.
 }
 
 \item{\code{data} as an \code{array} object}{
@@ -223,6 +227,8 @@ Other functions for adding constraints:
 \code{\link[=add_locked_out_constraints]{add_locked_out_constraints()}},
 \code{\link[=add_mandatory_allocation_constraints]{add_mandatory_allocation_constraints()}},
 \code{\link[=add_manual_bounded_constraints]{add_manual_bounded_constraints()}},
-\code{\link[=add_manual_locked_constraints]{add_manual_locked_constraints()}}
+\code{\link[=add_manual_locked_constraints]{add_manual_locked_constraints()}},
+\code{\link[=add_separation_constraints]{add_separation_constraints()}},
+\code{\link[=add_xor_constraints]{add_xor_constraints()}}
 }
 \concept{constraints}
