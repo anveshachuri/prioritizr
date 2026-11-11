@@ -33,7 +33,6 @@ jobs:
       CI: true
       NOT_CRAN: true
 
-
     steps:
       # configure git to prevent it from automatically converting line-endings
       # this is important to avoid WARNINGS during CRAN checks
