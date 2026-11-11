@@ -31,6 +31,26 @@ assertthat::on_failure(is_matrix_ish) <- function(call, env) {
   )
 }
 
+#' Is symmetric matrix?
+#'
+#' Check if an object is a matrix object with symmetric values.
+#'
+#' @param x Object.
+#'
+#' @return A `logical` value.
+#'
+#' @noRd
+is_symmetric_matrix <- function(x) {
+  is_matrix_ish(x) && Matrix::isSymmetric(x)
+}
+
+assertthat::on_failure(is_symmetric_matrix) <- function(call, env) {
+  paste0(
+    "{.arg ", deparse(call$x),
+    "} must be a {.cls matrix} or {.cls Matrix} object with symmetric values."
+  )
+}
+
 #' Is single-objective or multi-objective conservation planning problem?
 #'
 #' Check if an object is a `ConservationProblem` object or a

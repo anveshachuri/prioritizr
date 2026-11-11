@@ -361,7 +361,7 @@ methods::setMethod("add_boundary_penalties",
         number_of_total_units(x) == ncol(data),
         is_numeric_values(data),
         all_finite(data),
-        Matrix::isSymmetric(data)
+        is_symmetric_matrix(data)
       )
       # assert valid arguments for knapsack formulation
       if (identical(formulation, "knapsack")) {
@@ -426,7 +426,7 @@ methods::setMethod("add_boundary_penalties",
     # convert zones to matrix
     zones <- as.matrix(zones)
     assert(
-      isSymmetric(zones),
+      is_symmetric_matrix(zones),
       ncol(zones) == number_of_zones(x),
       min(zones) >= -1,
       max(zones) <= 1

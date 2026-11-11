@@ -233,14 +233,13 @@ methods::setMethod("eval_asym_connectivity_summary",
     zones <- as.matrix(zones)
     indices <- x$planning_unit_indices()
     data <- data[indices, indices, drop = FALSE]
-    if (Matrix::isSymmetric(data)) {
-      cli_warning(
-        paste0(
-          "{.arg data} contains symmetric connectivity values; ",
-          "it it recommended to use {.fn eval_connectivity_summary}."
-        )
+    verify(
+      !is_symmetric_matrix(data),
+      msg = c(
+        "!" = "{.arg data} contains symmetric connectivity values.",
+        "i" =  "Use {.fn eval_connectivity_summary} instead."
       )
-    }
+    )
     # convert zones & dgCMatrix data to list of sparse matrices
     m <- list()
     for (z1 in seq_len(ncol(zones))) {

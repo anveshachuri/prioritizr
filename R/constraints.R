@@ -45,8 +45,7 @@ NULL
 #' \item{[add_separation_constraints()]}{
 #' Add constraints to ensure that selected planning units are not neighbors
 #' with each other. These constraints may be especially useful for
-#' ensuring that features are represented in multiple, spatially separate
-#' protected areas.
+#' ensuring that there is a minimum distance between priority areas.
 #' }
 #'
 #' \item{[add_contiguity_constraints()]}{
@@ -86,6 +85,11 @@ NULL
 #' with problems that contain multiple zones.
 #' }
 #'
+#' \item{[add_xor_constraints()]}{
+#' Add constraints to specify that particular pairs of planning units should
+#' not both be selected (in other words, an exclusive or logical operation).
+#' }
+#'
 #' }
 #'
 #' @family overviews
@@ -114,32 +118,52 @@ NULL
 #' # create problem with neighbor constraints
 #' p4 <- p1 %>% add_neighbor_constraints(2)
 #'
+#' # create problem with separation constraints
+#' p5 <- p1 %>% add_separation_constraints()
+#'
 #' # create problem with contiguity constraints
-#' p5 <- p1 %>% add_contiguity_constraints()
+#' p6 <- p1 %>% add_contiguity_constraints()
 #'
 #' # create problem with feature contiguity constraints
-#' p6 <- p1 %>% add_feature_contiguity_constraints()
+#' p7 <- p1 %>% add_feature_contiguity_constraints()
 #'
 #' # create problem with linear constraints to ensure that,
 #' # at least, 5 planning units in the locked in raster are selected
-#' p6 <- p1 %>% add_linear_constraints(5, ">=", sim_locked_in_raster)
+#' p8 <- p1 %>% add_linear_constraints(5, ">=", sim_locked_in_raster)
 #'
 #' # create problem with linear constraints to ensure that
 #' # the total cost of solution is greater than or equal to 10
 #' # (note that this example is fairly contrived, see the documentation for
 #' # this function for a more realistic example)
-#' p7 <- p1 %>% add_cost_constraints(10, ">=")
+#' p9 <- p1 %>% add_cost_constraints(10, ">=")
+#'
+#' # create problem with xor constraints to ensure that
+#' # (i) the 85th and 86th raster pixels cannot both be selected and
+#' # (ii) the 97th and 98th raster pixels cannot both be selected
+#'
+#' # create matrix to specify xor constraints
+#' xor_matrix <- Matrix::sparseMatrix(
+#'   i = c(85, 97), j = c(86, 98), x = 1,
+#'   dims = rep(terra::ncell(sim_pu_raster), 2),
+#'   symmetric = TRUE
+#' )
+#'
+#' # create problem
+#' p10 <- p1 %>% add_xor_constraints(data = xor_matrix)
 #'
 #' # solve problems
-#' s <- terra::rast(lapply(list(p1, p2, p3, p4, p5, p6, p6, p7), solve))
+#' s <- terra::rast(
+#'   lapply(list(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10),
+#'   solve
+#' ))
 #' names(s) <- c(
 #'   "minimal problem", "locked in", "locked out",
-#'   "neighbor", "contiguity", "feature contiguity",
-#'   "linear constraints", "cost constraints"
+#'   "neighbor", "separation", "contiguity", "feature contiguity",
+#'   "linear constraints", "cost constraints", "xor constraints"
 #' )
 #'
 #' # plot solutions
-#' plot(s, axes = FALSE, nr = 2)
+#' plot(s, axes = FALSE, nc = 2)
 #'
 #' @name constraints
 NULL

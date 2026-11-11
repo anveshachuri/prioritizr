@@ -304,7 +304,7 @@ methods::setMethod("add_feature_contiguity_constraints",
           is.numeric(zones[[i]]),
           all_binary(zones[[i]]),
           all_finite(zones[[i]]),
-          isSymmetric(zones[[i]]),
+          is_symmetric_matrix(zones[[i]]),
           ncol(zones[[i]]) == number_of_zones(x),
           all(colMeans(zones[[i]]) <= diag(zones[[i]])),
           all(rowMeans(zones[[i]]) <= diag(zones[[i]]))
@@ -317,7 +317,7 @@ methods::setMethod("add_feature_contiguity_constraints",
         is_matrix_ish(zones),
         all_binary(zones),
         all_finite(zones),
-        isSymmetric(zones),
+        is_symmetric_matrix(zones),
         ncol(zones) == number_of_zones(x),
         all(colMeans(zones) <= diag(zones)),
         all(rowMeans(zones) <= diag(zones))
@@ -347,7 +347,7 @@ methods::setMethod("add_feature_contiguity_constraints",
           all_finite(data[[i]]),
           ncol(data[[i]]) == nrow(data[[i]]),
           number_of_total_units(x) == ncol(data[[i]]),
-          Matrix::isSymmetric(data[[i]])
+          is_symmetric_matrix(data[[i]])
         )
       }
     } else if (inherits(data, c("matrix", "dgCMatrix", "data.frame"))) {
@@ -362,7 +362,7 @@ methods::setMethod("add_feature_contiguity_constraints",
         all_finite(data),
         ncol(data) == nrow(data),
         number_of_total_units(x) == ncol(data),
-        Matrix::isSymmetric(data)
+        is_symmetric_matrix(data)
       )
     } else if (is.null(data)) {
       # check that planning unit data is spatially explicit

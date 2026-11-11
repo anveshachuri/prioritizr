@@ -6,7 +6,7 @@ NULL
 #' Add constraints to a conservation planning problem to ensure
 #' that selected planning units are separated from each other.
 #' If the problem has multiple zones, then these constraints can
-#' instead be used to ensure that planning units allocated to different
+#' be used to ensure that planning units allocated to different
 #' zones are separated from each other.
 #'
 #' @inheritParams add_manual_locked_constraints
@@ -144,7 +144,8 @@ methods::setMethod("add_separation_constraints",
       assert(
         ncol(data) == nrow(data),
         number_of_total_units(x) == ncol(data),
-        all_binary(data)
+        all_binary(data),
+        is_symmetric_matrix(data)
       )
     } else {
       # check that planning unit data is spatially referenced
@@ -212,7 +213,7 @@ methods::setMethod("add_separation_constraints",
 )
 
 #' @name add_separation_constraints
-#' @usage \S4method{add_separation_constraints}{ConservationProblem,ANY,array}(x, method, zones, data)
+#' @usage \S4method{add_separation_constraints}{ConservationProblem,ANY,array}(x, zones, data)
 #' @rdname add_separation_constraints
 methods::setMethod("add_separation_constraints",
   methods::signature("ConservationProblem", "ANY", "array"),
@@ -229,13 +230,6 @@ methods::setMethod("add_separation_constraints",
       dim(data)[4] == x$number_of_zones(),
       all_finite(data),
       all_binary(data)
-    )
-    assert(
-      identical(method, "simple"),
-      msg = paste(
-        "{.code method = \"simple\"} must be used if {.arg data} is",
-        "an {.cls array} object."
-      )
     )
     # add constraints
     internal_add_separation_constraints(x, zones, data)
@@ -256,7 +250,7 @@ internal_add_separation_constraints <- function(x, zones, data) {
       is.numeric(zones),
       all_binary(zones),
       all_finite(zones),
-      isSymmetric(zones),
+      is_symmetric_matrix(zones),
       ncol(zones) == number_of_zones(x),
       call = fn_caller_env()
     )
@@ -295,7 +289,7 @@ internal_add_separation_constraints <- function(x, zones, data) {
           if (is.null(d)) {
             d <- y$get_data("adjacency")
           }
-          z <- self$get_data("zones"),
+          z <- self$get_data("zones")
           indices <- y$planning_unit_indices()
           # process data
           m <- list()
@@ -330,6 +324,8 @@ internal_add_separation_constraints <- function(x, zones, data) {
           }
           # apply constraints
           internal_apply_xor_constraints(x, m)
+          # return success
+          invisible(TRUE)
         }
       )
     )$new()

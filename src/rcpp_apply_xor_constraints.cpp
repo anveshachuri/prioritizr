@@ -36,7 +36,7 @@ bool rcpp_apply_xor_constraints(
     // add remaining constraint information
     ptr->_sense.push_back("<=");
     ptr->_rhs.push_back(1.0);
-    ptr->_row_ids.push_back("x2");
+    ptr->_row_ids.push_back("x");
     // increment row counter
     ++r;
   }

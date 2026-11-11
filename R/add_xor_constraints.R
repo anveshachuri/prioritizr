@@ -1,10 +1,10 @@
 #' @include internal.R Constraint-class.R marxan_connectivity_data_to_matrix.R
 NULL
 
-#' Add exclusive or constraints
+#' Add exclusive disjunction (xor) constraints
 #'
 #' Add constraints to a conservation planning problem to specify that
-#' particular pairs of planning units should not both be selected.
+#' particular pairs of planning units should not both be selected
 #' (in other words, an exclusive or logical operation).
 #' If the problem has multiple zones, then these constraints can
 #' be used to ensure that a pair of planning units cannot both be allocated
@@ -50,18 +50,31 @@ NULL
 #'   add_min_set_objective() %>%
 #'   add_relative_targets(0.1) %>%
 #'   add_binary_decisions() %>%
-#'   add_default_solver(verbose = FALSE)
+#'   add_default_solver(gap = 0, verbose = FALSE)
+#'
+#' # define matrix for xor constraints so that a solution cannot select
+#' # (i) both of the 85th and 86th raster pixels, and
+#' # (ii) both the 97th and 98th raster pixels
+#' xor_matrix <- Matrix::sparseMatrix(
+#'   i = c(85, 97), j = c(86, 98), x = 1,
+#'   dims = rep(terra::ncell(sim_pu_raster), 2),
+#'   symmetric = TRUE
+#' )
 #'
 #' # create problem with constraints so that the solution cannot
-#' # select any pairs of neighboring planning units
-#' p2 <- p1 %>% add_xor_constraints(data = adjacency_matrix(sim_pu_raster))
+#' # select these pairs of planning units
+#' p2 <- p1 %>% add_xor_constraints(data = xor_matrix)
 #'
 #' # solve problems
 #' s1 <- c(solve(p1), solve(p2))
 #' names(s1) <- c("basic solution", "xor constraints")
 #'
+#' # prepare raster with labels to show pixel numbers
+#' i <- sim_pu_raster * 0
+#' i[] <- seq_len(terra::ncell(i))
+#'
 #' # plot solutions
-#' plot(s1, axes = FALSE)
+#' plot(s1, axes = FALSE, fun = function() terra::text(i))
 #'
 #' @name add_xor_constraints
 #'
@@ -102,7 +115,8 @@ methods::setMethod("add_xor_constraints",
     assert(
       ncol(data) == nrow(data),
       number_of_total_units(x) == ncol(data),
-      all_binary(data)
+      all_binary(data),
+      is_symmetric_matrix(data)
     )
     # add constraints
     internal_add_xor_constraints(x, zones, data)
@@ -154,7 +168,7 @@ methods::setMethod("add_xor_constraints",
 )
 
 #' @name add_xor_constraints
-#' @usage \S4method{add_xor_constraints}{ConservationProblem,ANY,ANY,array}(x, zones, data)
+#' @usage \S4method{add_xor_constraints}{ConservationProblem,ANY,array}(x, zones, data)
 #' @rdname add_xor_constraints
 methods::setMethod("add_xor_constraints",
   methods::signature("ConservationProblem", "ANY", "array"),
@@ -191,7 +205,7 @@ internal_add_xor_constraints <- function(x, zones, data) {
       is.numeric(zones),
       all_binary(zones),
       all_finite(zones),
-      isSymmetric(zones),
+      is_symmetric_matrix(zones),
       ncol(zones) == number_of_zones(x),
       call = fn_caller_env()
     )
@@ -215,7 +229,7 @@ internal_add_xor_constraints <- function(x, zones, data) {
           )
           # extract data
           d <- self$get_data("data")
-          z <- self$get_data("zones"),
+          z <- self$get_data("zones")
           indices <- y$planning_unit_indices()
           # process data
           m <- list()
@@ -282,9 +296,7 @@ internal_apply_xor_constraints <- function(x, data) {
   }
   # find cliques based on the matrix
   cl <- igraph::max_cliques(
-    igraph::graph_from_adjacency_matrix(
-      data, mode = "undirected", diag = FALSE
-    ),
+    igraph::graph_from_adjacency_matrix(m, mode = "undirected", diag = FALSE),
     min = 2
   )
   # if at least one clique present, then add constraints based on cliques

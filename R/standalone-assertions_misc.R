@@ -196,7 +196,7 @@ assertthat::on_failure(is_valid_raw_solution) <- function(call, env) {
 
 #' Is area unit?
 #'
-#' Assert that a value is a valid unit of measuring area.
+#' Check if a value is a valid unit of measuring area.
 #'
 #' @param `character` value.
 #'
@@ -231,7 +231,7 @@ assertthat::on_failure(is_area_units) <- function(call, env) {
 
 #' All area units?
 #'
-#' Assert that a vector has valid units of measuring area.
+#' Check if a vector has valid units of measuring area.
 #'
 #' @param `character` value.
 #'
