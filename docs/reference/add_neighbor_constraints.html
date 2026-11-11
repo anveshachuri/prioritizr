@@ -17,7 +17,7 @@ predefined number of neighbors that are also selected in the solution."><meta pr
 
     <a class="navbar-brand me-2" href="../index.html">prioritizr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">9.0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">9.0.1.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -176,7 +176,11 @@ specified (e.g., if data is present for planning units 2 and 3, then
 the same amount of connectivity is expected for planning units 3 and 2,
 unless connectivity data is also provided for planning units 3 and 2).
 If <code>x</code> has multiple zones, then the
-"zone1"<code>and</code>"zone2"<code>columns can optionally be provided to manually specify that the neighborhood data pertain to specific zones. The</code>"zone1"<code>and</code>"zone2"<code>columns should contain the</code>character<code>names of the zones. Note that if the columns</code>"zone1"<code>and</code>"zone2"<code>are present, then</code>zones<code>must be</code>NULL`.</p></dd>
+<code>"zone1"</code> and <code>"zone2"</code> columns can optionally be provided to manually
+specify that the neighborhood data pertain to specific zones. The
+<code>"zone1"</code> and <code>"zone2"</code> columns should contain the <code>character</code>
+names of the zones. Note that if the columns <code>"zone1"</code> and <code>"zone2"</code>
+are present, then <code>zones</code> must be <code>NULL</code>.</p></dd>
 
 
 <dt><code>data</code> as an <code>array</code> object</dt>
@@ -214,7 +218,9 @@ conservation. <em>European Journal of Operational Research</em>, 231:
 <code><a href="add_locked_out_constraints.html">add_locked_out_constraints()</a></code>,
 <code><a href="add_mandatory_allocation_constraints.html">add_mandatory_allocation_constraints()</a></code>,
 <code><a href="add_manual_bounded_constraints.html">add_manual_bounded_constraints()</a></code>,
-<code><a href="add_manual_locked_constraints.html">add_manual_locked_constraints()</a></code></p></div>
+<code><a href="add_manual_locked_constraints.html">add_manual_locked_constraints()</a></code>,
+<code><a href="add_separation_constraints.html">add_separation_constraints()</a></code>,
+<code><a href="add_xor_constraints.html">add_xor_constraints()</a></code></p></div>
     </div>
 
     <div class="section level2">

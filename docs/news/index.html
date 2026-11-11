@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">prioritizr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">9.0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">9.0.1.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,10 +53,27 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="9.0.1.2" id="prioritizr-9012">prioritizr 9.0.1.2<a class="anchor" aria-label="anchor" href="#prioritizr-9012"></a></h2>
+<div class="section level3">
+<h3 id="notice-9-0-1-2">Notice<a class="anchor" aria-label="anchor" href="#notice-9-0-1-2"></a></h3>
+<ul><li>Update package citation information to include Neubert et al. (2026) (<a href="https://github.com/prioritizr/prioritizr/issues/420" class="external-link">#420</a>).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="new-features-9-0-1-2">New features<a class="anchor" aria-label="anchor" href="#new-features-9-0-1-2"></a></h3>
+<ul><li>New <code><a href="../reference/add_separation_constraints.html">add_separation_constraints()</a></code> function to add constraints to ensure that selected planning units must be spatially separated from each other (<a href="https://github.com/prioritizr/prioritizr/issues/414" class="external-link">#414</a>). Thanks to Eleanor Stewart (<a href="https://github.com/eleanorstewart17" class="external-link">@eleanorstewart17</a>) for feature suggestion and massive thanks to Anvesha Churi (<a href="https://github.com/anveshachuri" class="external-link">@anveshachuri</a>) for contributing code and developing the underlying mathematical formulation.</li>
+<li>New <code><a href="../reference/add_xor_constraints.html">add_xor_constraints()</a></code> function to add constraints to ensure that solutions must not contain particular pairs of selected planning units. Massive thanks to Anvesha Churi (<a href="https://github.com/anveshachuri" class="external-link">@anveshachuri</a>) for contributing code and developing the underlying mathematical formulation.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="documentation-updates-9-0-1-2">Documentation updates<a class="anchor" aria-label="anchor" href="#documentation-updates-9-0-1-2"></a></h3>
+<ul><li>Update <em>Publication record</em> vignette.</li>
+</ul></div>
+</div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="9.0.1.1" id="prioritizr-9011">prioritizr 9.0.1.1<a class="anchor" aria-label="anchor" href="#prioritizr-9011"></a></h2>
 <div class="section level3">
 <h3 id="minor-improvements-and-bug-fixes-9-0-1-1">Minor improvements and bug fixes<a class="anchor" aria-label="anchor" href="#minor-improvements-and-bug-fixes-9-0-1-1"></a></h3>
 <ul><li>New <code><a href="../reference/add_scip_solver.html">add_scip_solver()</a></code> function for the <em>SCIP</em> optimization software (<a href="https://github.com/prioritizr/prioritizr/issues/412" class="external-link">#412</a>).</li>
+<li>New <code><a href="../reference/add_separation_constraints.html">add_separation_constraints()</a></code> function to add constraints so that selected planning units are not neighbors with each other. When used with multiple zones, these constraints can ensure that features are represented in multiple, spatially separate protected areas (<a href="https://github.com/prioritizr/prioritizr/issues/414" class="external-link">#414</a>).</li>
 <li>Fix bug in <code><a href="../reference/spec_rule_targets.html">spec_rule_targets()</a></code> function that yielded incorrect targets when the order of the features in <code>data</code> does not match that of <code>features</code> in <code><a href="../reference/problem.html">problem()</a></code> (<a href="https://github.com/prioritizr/prioritizr/issues/415" class="external-link">#415</a>). Thanks to Ramon the creator of <a href="https://github.com/wilmund" class="external-link">@wilmund</a> for bug report.</li>
 <li>Fix bugs in <code><a href="../reference/spec_area_targets.html">spec_area_targets()</a></code>, <code><a href="../reference/spec_duran_targets.html">spec_duran_targets()</a></code>, <code><a href="../reference/spec_max_targets.html">spec_max_targets()</a></code>, <code><a href="../reference/spec_min_targets.html">spec_min_targets()</a></code>, <code><a href="../reference/spec_pop_size_targets.html">spec_pop_size_targets()</a></code>, and <code><a href="../reference/spec_rule_targets.html">spec_rule_targets()</a></code> functions that yielded incorrect targets or errors when used with <code><a href="../reference/add_group_targets.html">add_group_targets()</a></code> (<a href="https://github.com/prioritizr/prioritizr/issues/416" class="external-link">#416</a>). Thanks to Ramon the creator of <a href="https://github.com/wilmund" class="external-link">@wilmund</a> for bug report.</li>
 <li>Fix bugs in <code><a href="../reference/spec_area_targets.html">spec_area_targets()</a></code>, <code><a href="../reference/spec_duran_targets.html">spec_duran_targets()</a></code>, <code><a href="../reference/spec_interp_absolute_targets.html">spec_interp_absolute_targets()</a></code>, <code><a href="../reference/spec_pop_size_targets.html">spec_pop_size_targets()</a></code>, <code><a href="../reference/spec_rl_species_targets.html">spec_rl_species_targets()</a></code>, and <code><a href="../reference/spec_rule_targets.html">spec_rule_targets()</a></code> that resulted in errors when trying to generate prioritizations and one (or more) features had zeros in all planning units (<a href="https://github.com/prioritizr/prioritizr/issues/417" class="external-link">#417</a>). Thanks to Ramon the creator of <a href="https://github.com/wilmund" class="external-link">@wilmund</a> for bug report.</li>
@@ -434,7 +451,7 @@
 <h2 class="pkg-version" data-toc-text="8.0.4.1" id="prioritizr-8041">prioritizr 8.0.4.1<a class="anchor" aria-label="anchor" href="#prioritizr-8041"></a></h2>
 <div class="section level3">
 <h3 id="minor-improvements-and-bug-fixes-8-0-4-1">Minor improvements and bug fixes<a class="anchor" aria-label="anchor" href="#minor-improvements-and-bug-fixes-8-0-4-1"></a></h3>
-<ul><li>Fix issue with <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code> and <code>summarize()</code> not displaying correct text for linear constraints (<a href="https://github.com/prioritizr/prioritizr/issues/330" class="external-link">#330</a>).</li>
+<ul><li>Fix issue with <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize()</a></code> not displaying correct text for linear constraints (<a href="https://github.com/prioritizr/prioritizr/issues/330" class="external-link">#330</a>).</li>
 </ul></div>
 </div>
     <div class="section level2">

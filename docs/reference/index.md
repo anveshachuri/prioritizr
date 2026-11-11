@@ -200,6 +200,16 @@ Functions for adding constraints to a problem.
   [`add_neighbor_constraints(`*`<ConservationProblem>`*`,`*`<ANY>`*`,`*`<ANY>`*`,`*`<ANY>`*`,`*`<matrix>`*`)`](https://prioritizr.net/reference/add_neighbor_constraints.md)
   [`add_neighbor_constraints(`*`<ConservationProblem>`*`,`*`<ANY>`*`,`*`<ANY>`*`,`*`<ANY>`*`,`*`<array>`*`)`](https://prioritizr.net/reference/add_neighbor_constraints.md)
   : Add neighbor constraints
+- [`add_separation_constraints(`*`<ConservationProblem>`*`,`*`<ANY>`*`,`*`<ANY>`*`)`](https://prioritizr.net/reference/add_separation_constraints.md)
+  [`add_separation_constraints(`*`<ConservationProblem>`*`,`*`<ANY>`*`,`*`<data.frame>`*`)`](https://prioritizr.net/reference/add_separation_constraints.md)
+  [`add_separation_constraints(`*`<ConservationProblem>`*`,`*`<ANY>`*`,`*`<matrix>`*`)`](https://prioritizr.net/reference/add_separation_constraints.md)
+  [`add_separation_constraints(`*`<ConservationProblem>`*`,`*`<ANY>`*`,`*`<array>`*`)`](https://prioritizr.net/reference/add_separation_constraints.md)
+  : Add separation constraints
+- [`add_xor_constraints(`*`<ConservationProblem>`*`,`*`<ANY>`*`,`*`<ANY>`*`)`](https://prioritizr.net/reference/add_xor_constraints.md)
+  [`add_xor_constraints(`*`<ConservationProblem>`*`,`*`<ANY>`*`,`*`<data.frame>`*`)`](https://prioritizr.net/reference/add_xor_constraints.md)
+  [`add_xor_constraints(`*`<ConservationProblem>`*`,`*`<ANY>`*`,`*`<matrix>`*`)`](https://prioritizr.net/reference/add_xor_constraints.md)
+  [`add_xor_constraints(`*`<ConservationProblem>`*`,`*`<ANY>`*`,`*`<array>`*`)`](https://prioritizr.net/reference/add_xor_constraints.md)
+  : Add exclusive disjunction (xor) constraints
 
 ## Penalties
 
